@@ -1,0 +1,81 @@
+10 Tips to Debug Java Program in Eclipse
+
+ 
+How to debug java program in Eclipse
+Debugging is a must have skill for any java developer. Having ability to debug java program enables to find you any subtle bug which is not visible during code review or comes when a particular condition offer, This becomes even more important if you are working in high frequency trading or electronic trading system project where time to fix a bug is very less and bug usually comes on production environment and doesn't appear in your Windows XP machine. in my experience debugging java application also helps you understand flow of java program. In this java tutorial we will see how to debug a java program, setting up remote debugging in java and some java debugging tips on Eclipse and Netbeans IDE. Itís also good to know various java debug tool available and how java debugger or jdb works but itís not mandatory for doing debugging in Java. To start java debugging you just needs your project to be configured in a modern IDE like eclipse and Netbeans and you are ready to debug java program. 
+
+
+
+Java debugging tools
+Java debugging tutorial example, java debugger, java debugging tools and tipsI mostly used Eclipse IDE and Netbeans IDE for java development and these IDE have great support for java debugging. They allow you to set various breakpoints like line breakpoint, conditional breakpoints or exception breakpoint. I prefer Eclipse over netbeans because of its seamless integration with remote debugging because most of the time your application will run on Linux machine and you might not have local version running on your machine, in such scenario remote debugging is extremely useful. You can check how to setup java remote debugging in eclipse for step by step guide on setting remote debugging in eclipses. Apart from Eclipse and Netbeans IDE you can also use Java debugger jdb which is a simple command line based java debugger and based on java platform debugging architecture and can be used to debug java program locally or remotely.
+
+
+ 
+Java debug options
+If you are not using any IDE for java debugging locally you need to provide java debug option while starting your program. You need to provide java debug option also if you are setting up remote debugging session or using jdb for java debugging. Following are the two java debugging option which needs to be provided to java program:
+Debug Options	Purpose
+Xdebug        	Used to run java program in debug mode
+Xrunjdwp:transport=dt_socket,server=y,suspend=n       	Loads in Process debugging libraries and specifies the kind of connection to be made.
+Suspend=y and n is quite useful for debugging from start or debugging at any point.
+
+Using jdb to debug java application
+1) Start your java program with two options provided above for example, below command will start StockTrading java program in debug mode.
+
+ % java -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n StockTrading
+
+After starting your java application in debug mode you can attach java debugger "jdb" to the VM with the following command:
+
+ % jdb -attach 8000
+
+You can check the jdb manual page for complete detail on how to do java debugging with jdb.
+
+Java remote debugging with eclipse
+This is another cool feature of eclipse which allows you to connect your java application running on remote host and do remote debugging. You just need to start your java application with the java debug option discussed above and then connect your application from eclipse into specified port. You can check below link for step by step guide on java remote debugging with eclipse.
+
+
+Debugging Java Program in Eclipse and Netbeans
+Debugging java application locally on any IDE like Eclipse or Netbeans itís very simple, just select the project and click debug or use debug shortcut provided by IDE. You can also debug a single java class with main method. In Eclipse just right click and select "Debug as Java Application".
+
+10 practical Java debugging tips
+Now let's see some java debugging tips which I used while doing debugging in Java in eclipse.
+
+1) Use conditional breakpoint
+Eclipse allows you to setup conditional break point for debugging java program, which is a breakpoint with condition and your thread will only stop at specified line if condition matches instead of just stopping on that line like in case of line breakpoint. To setup a conditional breakpoint just double click on any line where you want to setup a breakpoint and then right click --> properties and then insert the condition. Now program will only stop when that particular condition is true and program is running on debug mode.
+
+java debugging tutorial and tips
+
+debugging in java and eclipse tips
+
+
+
+2) Use Exception breakpoint
+How many times you have frustrated with a NullPointerException and you don't know the source from where the exception is coming. Exception breakpoints are just made for such situation. Both Eclipse and Netbeans allows you to setup Exception breakpoint. You can setup Exception breakpoint based on java exception like NullPointerException or ArrayIndexOutOfBoundException. You can setup Exception breakpoint from breakpoint window and your program will stop when you start it on debug mode and exception occurs.
+
+how to debug java program in eclipse
+3) Step over, Step Into
+These are simply great debugging options available in any Java IDE, extremely useful if you are debugging multi-threaded application and want to navigate step by step.
+
+4) Stopping for a particular Thread
+This is my own custom made java debugging tips which I made using conditional breakpoints. since most of my projects are multi-threaded java programs and I want only a particular thread to stop on a particular line, for doing that I setup a conditional breakpoint on that line and put Thread.currentThread().getName().equals("TestingThread") and it works fantastically.
+
+5) Inspect and Watch
+These are two menu options which I use to see the value of expression during debugging java program. I just select the statement, right click and inspect and it will show you the value of that statement at debugging time. You can also put watch on that and that condition and its value will appear on watch window.
+
+6) Suspending and resuming thread
+You can suspend and resume any thread while debugging java program from debug window. Just right click on any thread and select either suspends or resume. This is also very useful while debugging multi-threading program and simulating race conditions.
+
+7) Using logical structure
+Logical structure option is very useful for examining contents inside java collection classes like java hasmap or Java Arraylist during java debugging. Logical view will show the contents like key and value of hashmap instead of showing full details of hashmap which we may not be interested, you can enable and disable logical view from variables window.
+
+8) Step filtering
+When we do Step Into on process debugging java program control goes form one class to other and it eventually go to JDK classes like System or String. Some time we just to remain in our application and don't want to navigate into JDK System classes in that case Step filtering is great you can just filter out JDK class from Step into. You can setup step filtering from preferences ‡Java‡Debug‡Step Filtering and enable and disable it from Debug window.
+
+9) Copy Stack
+While debugging java program if you want to copy the stack of a thread which hit the breakpoint and suspended you do so by "Copy Stack" option. Just right click on Thread on Debug Window and select "Copy Stack".
+
+10) Last tip is use java debugging as last option and not the first option because itís very time consuming, especially remote java debugging which takes a lot of time if network latency is very high between local and remote host. Try to identify problem by looking at code it would be very handy and quick.
+
+lastly java debugging is real fun so definitely try it few times to get hold of it and please share some other java debugging tips you use on your daily life.
+
+
+Read more: https://javarevisited.blogspot.com/2011/07/java-debugging-tutorial-example-tips.html#ixzz5LgyTn9Dc
