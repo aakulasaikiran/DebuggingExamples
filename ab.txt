@@ -1,0 +1,30 @@
+git init
+git status
+git add chocolate.jpeg
+git commit -m “Add chocolate.jpeg.”
+git remote add origin https://github.com/123WebDesign/icecream.git
+git remote -v
+git push
+
+
+
+
+
+
+
+
+git config --global user.name "aakulasaikiran"
+
+git config --global user.name
+Mona Lisa
+
+
+
+git config --global user.name "aakulasaikiran"
+git config --global user.password "aa12271a0440"
+
+
+
+
+Username for 'https://github.com': aakulasaikiran
+Password for 'https://aakulasaikiran@github.com': Aa@12271a0440
